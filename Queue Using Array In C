@@ -16,7 +16,7 @@ void insert(){
 		return;
 		
 	}
-	if(front==-1&&rear==-1){
+	if(rear==-1){
 		
 		front=front+1;
 		rear=rear+1;
