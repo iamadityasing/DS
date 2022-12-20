@@ -1,0 +1,88 @@
+#include<stdio.h>
+#include<conio.h>
+int rear=-1;
+int front=-1;
+int max=10;
+
+int cq[10];
+
+void enqueue(){
+	int n;
+	printf("\n enter the number you want to insert\n");
+	scanf("%d",&n);
+	if(front==-1 && rear==-1){
+		front++;
+		rear++;
+		cq[rear]=n;
+	}
+	else if((rear+1)%max==front){
+		printf("Queue is full\n");
+		
+	}
+	else{
+		rear=(rear+1)%max;
+		cq[rear]=n;
+	}
+}
+void dequeue(){
+	if (front==-1 && rear==-1){
+		printf("queue underflow");
+	}
+	else if(front==rear){
+		printf("%d element deleted\t",cq[front] );
+		front=-1;
+		rear=-1;
+	}
+	else{
+		printf("%d element deleted\t",cq[front]);
+		front=(front+1)%max;
+	}
+}
+
+
+void display(){
+	int i=front;
+
+	if(front==-1 && rear==-1){
+		printf("\nQueue is empty\n");
+	}
+	else
+	{
+		while(i!=rear)
+		{
+			printf("%d\t",cq[i]);
+			i=(i+1)%max;
+		}
+			printf("%d\t",cq[rear]);
+	}
+		
+}
+main()
+{
+    int ch;
+    while (1)
+    {
+        printf("1.Enqueue Operation\n");
+        printf("2.Dequeue Operation\n");
+        printf("3.Display the Queue\n");
+        printf("4.Exit\n");
+        printf("Enter your choice of operations : ");
+        scanf("%d", &ch);
+        switch (ch)
+        {
+            case 1:
+            enqueue();
+            break;
+            case 2:
+            dequeue();
+            break;
+            case 3:
+            display();
+            break;
+            case 4:
+            return 0;
+            default:
+            printf("Incorrect choice \n");
+        } 
+    } 
+} 
