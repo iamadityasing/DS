@@ -9,13 +9,16 @@ struct node
 struct node*front;
 struct node*rear;
 
-void insert(){
+void insert()
+{
 	int n;
 	printf("Enter the number you want to insert\n");
 	scanf("%d",&n);
 	struct node*temp;
 	temp=(struct node*)malloc(sizeof(struct node));
-	if(front==NULL && rear==NULL){
+  temp -> data = n;
+	if(front==NULL && rear==NULL)
+  {
 		front=temp;
 		rear=temp;
 		rear->link=front;
@@ -29,18 +32,21 @@ void insert(){
 	}
 }
 
-void del(){
+void delete()
+{
 	struct node *temp;
-	if(front==NULL &&rear==NULL){
+	if(front==NULL &&rear==NULL)
+  {
 		printf("\nQueue is empty\n");
-		return;
 	}
-	else if(front==rear){
+	else if(front==rear)
+  {
 		free (front);
 		front=NULL;
 		rear=NULL;
 	}
-	else{
+	else
+  {
 		temp=front;
 		front=front->link;
 		rear->link=front;
@@ -50,58 +56,66 @@ void del(){
 void display()
 {
 	struct node *temp;
-    if (front == NULL && rear == NULL)
+  if (front == NULL && rear == NULL)
+  {
+    printf("Queue is empty.");
+  }
+  else if (front == rear)
+  {
+    printf("%d\n", front -> data);
+  }
+  else
+  {
+    temp = front;
+    printf("");
+    while (temp -> link != front)
     {
-        printf("Queue is empty.");
+      printf("%d\t", temp -> data);
+      temp = temp -> link;
     }
-    else if (front == rear)
-    {
-        printf("%d", front -> data);
-    }
-    else
-    {
-        temp = front;
-        printf("");
-        while (temp -> link != front)
-        {
-            printf("%d\t", temp -> data);
-            temp = temp -> link;
-        }
-        printf("%d\t", temp -> data);
-        printf("");
-	}
-	
+    printf("%d\t", temp -> data);
+    printf("");
+  }
 }
 
 
-main()
+int main()
 {
-	int ch;
-    while (1)
+  int ch;
+  while (1)
+  {
+    printf("1.Insert operation\n");
+    printf("2.Delete Operation\n");
+    printf("3.Display the Queue\n");
+    printf("4.Exit\n");
+    printf("Enter your choice of operations : ");
+    scanf("%d", &ch);
+    switch (ch)
     {
-        printf("1.Insert operation\n");
-        printf("2.Delete Operation\n");
-        printf("3.Display the Queue\n");
-        printf("4.Exit\n");
-        printf("Enter your choice of operations : ");
-        scanf("%d", &ch);
-        switch (ch)
-        {
-            case 1:
-            insert();
-            break;
-            case 2:
-            del();
-            break;
-            case 3:
-            display();
-            break;
-            case 4:
-            return 0;
-            default:
-            printf("Incorrect choice \n");
-        } 
+      case 1:
+      {
+        insert();
+        break;
+      }
+      case 2:
+      {  
+        delete();
+        break;
+      }
+      case 3:
+      { 
+        display();
+        break;
+      }
+      case 4:
+      {
+        break;
+      }
+      default:
+      {
+        printf("Incorrect choice \n");
+      }
+        
     } 
-
+  } 
 }
-
