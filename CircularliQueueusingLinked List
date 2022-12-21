@@ -15,6 +15,7 @@ void insert(){
 	scanf("%d",&n);
 	struct node*temp;
 	temp=(struct node*)malloc(sizeof(struct node));
+	temp->data=n;
 	if(front==NULL && rear==NULL){
 		front=temp;
 		rear=temp;
@@ -52,7 +53,7 @@ void display()
 	struct node *temp;
     if (front == NULL && rear == NULL)
     {
-        printf("Queue is empty.");
+    	printf("Queue is empty.");
     }
     else if (front == rear)
     {
@@ -79,7 +80,7 @@ main()
 	int ch;
     while (1)
     {
-        printf("1.Insert operation\n");
+        printf("\n1.Insert operation\n");
         printf("2.Delete Operation\n");
         printf("3.Display the Queue\n");
         printf("4.Exit\n");
@@ -104,4 +105,6 @@ main()
     } 
 
 }
+
+
 
