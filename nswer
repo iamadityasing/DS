@@ -1,0 +1,24 @@
+i = len(arr)-1
+    while i >= 0:
+        if m - arr[i] in arr and arr.index(m - arr[i]) != i:
+            return [arr.index(m - arr[i]) + 1, i + 1]
+        i -= 1
+        
+         
+index={}
+    n=len(arr)
+    for i in range(n):
+        index[arr[i]]=i
+    current=0
+    for i in range(n,0,-1):
+        if(arr[current]!=i):
+            temp=arr[current]
+            arr[current],arr[index[i]]=arr[index[i]],arr[current]
+            index[i],index[temp]=index[temp],index[i]
+            k-=1
+            if(k==0):
+                break
+        current+=1
+    return arr
+ 
+return max([i^j for i in range(l,r+1) for j in range(i,r+1)])
