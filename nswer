@@ -22,3 +22,36 @@ index={}
     return arr
  
 return max([i^j for i in range(l,r+1) for j in range(i,r+1)])
+
+
+partition list
+class Solution {
+    public ListNode partition(ListNode head, int x) 
+    {
+        ListNode smallerNodes = new ListNode(-1);
+        ListNode greaterNodes = new ListNode(-1);
+
+        ListNode p = smallerNodes, q = greaterNodes;
+
+        while (head != null)
+        {
+            if (head.val >= x)
+            {
+                q.next = head;
+                q = q.next;
+            }
+            else
+            {
+                p.next = head;
+                p = p.next;
+            }
+            head = head.next;
+        }
+        p.next = greaterNodes.next;
+        q.next = null;
+
+        return smallerNodes.next;
+
+        
+    }
+}
