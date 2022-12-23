@@ -183,6 +183,71 @@ int main()
 
 
 
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+	int data;
+	struct node * link;
+};
+struct node*p;
+
+void addend(){
+	struct node*temp;
+	struct node*point;
+	int n;
+	if(p==NULL)
+	{
+		printf("enter the no");
+		scanf("%d",&n);
+		
+		temp=(struct node*)malloc(sizeof(struct node));	
+		temp->data=n;
+		temp->link=NULL;
+		p = temp;
+	}
+	else{
+		point=p;
+		while(point -> link !=NULL){
+			point=point->link;
+			
+		}
+		printf("enter the no");
+		scanf("%d",&n);
+		temp=(struct node*)malloc(sizeof(struct node));	
+		temp->data=n;
+		temp->link=NULL;
+		point->link=temp;
+	}
+}
+void print()
+{
+    struct node*temp;
+    temp=p;
+    while(temp->link!=NULL)
+    {
+        printf("%d\t",temp->data);
+        temp=temp->link;
+
+    }
+    printf("%d\t",temp->data);
+    
+}
+
+
+	
+int main()
+{
+
+	addend();
+  print();
+	addend();
+  print();
+	addend();
+	
+
+
+	print();
+}
 
 
 
