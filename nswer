@@ -89,6 +89,103 @@ void addend(){
 
 
 
+#include<stdio.h>
+#include<stdlib.h>
+//structure is created in the begning  
+struct node{
+	int data;
+	struct node * link;
+};
+struct node*p;
+
+void add_begin(){
+	struct node*temp;
+	int n;
+	printf("enter the no");
+	scanf("%d",&n);
+	if(p==NULL)
+	{
+		p=(struct node*)malloc(sizeof(struct node));
+		p->data=n;
+		p->link=NULL;
+	}
+	else
+	{
+		temp=(struct node*)malloc(sizeof(struct node));
+		temp->data=n;
+		temp->link=p;
+		p=temp;
+		
+		
+	}	
+}
+void print()
+{
+    struct node*temp;
+    temp=p;
+    if(p!=NULL)
+    {
+    while(temp->link!=NULL)
+    {
+        printf("%d",temp->data);
+        temp=temp->link;
+
+    }
+    printf("%d",temp->data);
+    }
+}
+
+void addend(){
+	struct node*temp;
+	struct node*temp1;
+	int n;
+	
+	
+	
+	if(p==NULL)
+	{
+		printf("enter the no");
+		scanf("%d",&n);
+		
+		temp=(struct node*)malloc(sizeof(struct node));	
+		temp->data=n;
+		temp->link=NULL;
+		p=temp;
+	}
+	else{
+		temp1=p;
+		while(temp1!=NULL){
+			temp1=temp1->link;
+			
+		}
+		printf("enter the no");
+		scanf("%d",&n);
+		temp=(struct node*)malloc(sizeof(struct node));	
+		temp->data=n;
+		temp->link=NULL;
+		temp1->link=temp;
+	}
+}
+	
+int main()
+{
+	add_begin();
+	addend();
+	addend();
+	addend();
+	
+	print();
+	add_begin();
+	print();
+}
+
+
+
+
+
+
+
+
 
 
 
