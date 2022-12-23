@@ -55,3 +55,43 @@ class Solution {
         
     }
 }
+
+
+
+
+void addend(){
+	struct node*temp;
+	struct node*temp1;
+	int n;
+	temp=(struct node*)malloc(sizeof(struct node));
+	printf("enter the no");
+	scanf("%d",&n);
+	temp->data=n;
+	temp->link=NULL;
+	if(p==NULL)
+	{
+		p=temp;	
+	}
+	else{
+		temp1=p;
+		while(temp1!=NULL){
+			temp1=temp1->link;
+			
+		}
+		temp1->link=temp;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
