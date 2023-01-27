@@ -8,6 +8,7 @@ print(result)'''
 # result=re.findall(r"\w{4}",str)
 # # print("Match.object:",result)
 # # print("Match value:",result.group())
+# 
 # print(result)
 
 #w is used for words and W is used for special characters
