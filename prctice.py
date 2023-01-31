@@ -20,7 +20,19 @@ class BankAccount:
             self.accountNumber=accountNumber
             self.name=name
             self.balance=balance
-
+    def deposite(Self,amount):
+        self.balance+=amount
+    def withdrawl(self,amount):
+        if amount>self.balance:
+            print("Issuficient Balance")
+        else:
+            self.balance-=amount
+    def bankFees(self):
+        self.balance=0.95*self.balance
+    def display(self):
+        print("ACCOUNT NUMBER:",self.accountNumber)
+        print("ACCOUNT HOLDER NAME",self.name)
+        print("ACCOUNT BALANCE",self.balance) 
 
 obj1=BankAccount(1234567890,"rahul",50000)
 print(obj1)
