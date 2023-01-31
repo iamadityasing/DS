@@ -12,3 +12,15 @@ print(result)'''
 # print(result)
 
 #w is used for words and W is used for special characters
+class BankAccount:
+    def __init__(self,accountNumber,name,balance):
+        if len(str(accountNumber))!=10 or str(accountNumber)[0]!="1":
+            print("Invalid account number")
+        else:
+            self.accountNumber=accountNumber
+            self.name=name
+            self.balance=balance
+
+
+obj1=BankAccount(1234567890,"rahul",50000)
+print(obj1)
