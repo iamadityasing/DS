@@ -20,7 +20,7 @@ class BankAccount:
             self.accountNumber=accountNumber
             self.name=name
             self.balance=balance
-    def deposite(Self,amount):
+    def deposite(self,amount):
         self.balance+=amount
     def withdrawl(self,amount):
         if amount>self.balance:
